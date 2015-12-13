@@ -55,6 +55,24 @@ exports.isInstalled = function (onfulfilled, onrejected) {
         }, 'WeChat', 'isInstalled', []);
 };
 
+exports.auth = function (scope, state, onfulfilled, onrejected) {
+        if (typeof scope == "function") {
+            // Wechat.auth(function () { alert("Success"); });
+            // Wechat.auth(function () { alert("Success"); }, function (error) { alert(error); });
+            cordova
+                .exec(scope, state, "Wechat", "sendAuthRequest");
+        }
+
+        if (typeof state == "function") {
+            // Wechat.auth("snsapi_userinfo", function () { alert("Success"); });
+            // Wechat.auth("snsapi_userinfo", function () { alert("Success"); }, function (error) { alert(error); });
+            cordova
+                .exec(state, onfulfilled, "Wechat", "sendAuthRequest", [scope]);
+        }
+            cordova
+                .exec(onfulfilled, onrejected, "Wechat", "sendAuthRequest", [scope, state]);
+    },
+
 exports.sendPaymentRequest = function (params, onfulfilled, onrejected) {
     cordova
         .exec(function (sendPaymentRequest) {
