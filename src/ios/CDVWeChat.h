@@ -1,9 +1,9 @@
 /*
     Cordova WeChat Plugin
-    https://github.com/vilic/cordova-plugin-wechat
+    https://github.com/meishao/cordova-plugin-wechat
 
-    by VILIC VANE
-    https://github.com/vilic
+    by MEISHAO
+    https://github.com/meishao
 
     MIT License
 */
