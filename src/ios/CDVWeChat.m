@@ -273,7 +273,7 @@ const int SCENE_TIMELINE = 2;
                 NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
                 break;
         }
-    
+    }    
     [self.commandDelegate sendPluginResult:result callbackId:self.currentCallbackId];
     
     self.currentCallbackId = nil;
