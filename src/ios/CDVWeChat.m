@@ -178,6 +178,7 @@ const int SCENE_TIMELINE = 2;
 
 - (void)sendPaymentRequest:(CDVInvokedUrlCommand *)command
 {
+    CDVPluginResult* result = nil;
     // check arguments
     NSDictionary *params = [command.arguments objectAtIndex:0];
     if (!params)
