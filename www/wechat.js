@@ -75,9 +75,5 @@ exports.auth = function (scope, state, onfulfilled, onrejected) {
 
 exports.sendPaymentRequest = function (params, onfulfilled, onrejected) {
     cordova
-        .exec(function (sendPaymentRequest) {
-            onfulfilled(sendPaymentRequest);
-        }, function (err) {
-            onrejected(err);
-        }, 'WeChat', 'sendPaymentRequest', [params]);
+        .exec(onfulfilled, onrejected, 'WeChat', 'sendPaymentRequest', [params]);
 };

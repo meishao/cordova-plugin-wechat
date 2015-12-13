@@ -262,7 +262,18 @@ const int SCENE_TIMELINE = 2;
                 result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:ERR_UNKNOWN];
                 break;
         }
-    }
+    }else if([resp isKindOfClass:[PayResp class]]){
+        PayResp *resp = (PayResp *)resp;
+        switch (resp.errCode) {
+            case WXSuccess:
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+                
+            default:
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
     
     [self.commandDelegate sendPluginResult:result callbackId:self.currentCallbackId];
     
