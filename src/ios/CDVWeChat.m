@@ -1,9 +1,9 @@
 /*
     Cordova WeChat Plugin
-    https://github.com/vilic/cordova-plugin-wechat
+    https://github.com/meishao/cordova-plugin-wechat
 
-    by VILIC VANE
-    https://github.com/vilic
+    by MEISHAO
+    https://github.com/meishao
 
     MIT License
 */
@@ -178,6 +178,7 @@ const int SCENE_TIMELINE = 2;
 
 - (void)sendPaymentRequest:(CDVInvokedUrlCommand *)command
 {
+    CDVPluginResult* result = nil;
     // check arguments
     NSDictionary *params = [command.arguments objectAtIndex:0];
     if (!params)
